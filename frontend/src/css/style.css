@@ -1,0 +1,170 @@
+/* General Body Styling */
+body {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #F5F7FA; /* Secondary Color */
+    color: #333333; /* Text Color */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#app {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Section Styling */
+.input-section, .output-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #E0E6ED; /* Border Color */
+    border-radius: 8px;
+    background-color: #FFFFFF;
+}
+
+/* Textarea Styling */
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    border: 1px solid #E0E6ED;
+    border-radius: 4px;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #4A90E2; /* Primary Color on focus */
+}
+
+/* Character Counter */
+.char-count {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+    margin-top: -10px;
+}
+
+/* Select Styling */
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #E0E6ED;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    -webkit-appearance: none; /* Remove default arrow on WebKit browsers */
+    -moz-appearance: none; /* Remove default arrow on Firefox */
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.7%204.9-3.9%2011.6-.5%2016.6l128%20139.1c3%203.3%207.1%205.1%2011.2%205.1%204.2%200%208.2-1.8%2011.2-5.1l128-139.1c3.4-5%203.2-11.7-.5-16.6z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #4A90E2;
+}
+
+
+/* Button Styling */
+button {
+    padding: 12px 20px;
+    background-color: #4A90E2; /* Primary Color */
+    color: #FFFFFF; /* White Text */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #357ABD; /* Slightly darker primary on hover */
+}
+
+button:active {
+    background-color: #2A669C; /* Even darker on active */
+}
+
+/* Layout for larger screens */
+@media (min-width: 768px) {
+    #app {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    h1, p {
+        grid-column: 1 / -1; /* Span across both columns */
+    }
+    .input-section {
+        grid-column: 1 / 2;
+    }
+    .output-section {
+        grid-column: 2 / 3;
+    }
+    .char-count {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+}
+
+/* Specific styling for the comparison view on larger screens */
+@media (min-width: 768px) {
+    .input-section, .output-section {
+        position: relative;
+    }
+    .input-section textarea, .output-section textarea {
+        min-height: 250px; /* Adjust height for side-by-side view */
+    }
+    .input-section .char-count {
+        position: absolute;
+        bottom: 25px; /* Adjust position relative to button */
+        right: 25px;
+        background-color: #ffffff; /* Ensure visibility over textarea */
+        padding: 0 5px;
+    }
+}
+
+/* Ensure consistent button width for the layout */
+.input-section button, .output-section button {
+    width: auto; /* Allow buttons to size based on content */
+    align-self: flex-end; /* Align to the right in flex column */
+}
+
+.output-section textarea {
+    background-color: #F5F7FA; /* Slightly different background for read-only */
+}
