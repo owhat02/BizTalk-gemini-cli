@@ -3,28 +3,25 @@
   "builds": [
     {
       "src": "backend/app.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.11" }
+      "use": "@vercel/python"
     },
     {
       "src": "frontend/public/**",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/public"
-      }
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/app.py"
+      "dest": "/backend/app.py"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/frontend/js/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/public/$1"
+      "dest": "/frontend/public/$1"
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.11.x"
-  }
+  ]
 }
