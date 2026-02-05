@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    original_text: originalText,
-                    target_audience: targetAudience,
+                    text: originalText,
+                    target: targetAudience,
                 }),
             });
 
