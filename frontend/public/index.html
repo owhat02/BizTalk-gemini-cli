@@ -4,27 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BizTone Converter</title>
-    <link rel="stylesheet" href="../src/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div id="app">
-        <h1>BizTone Converter</h1>
-        <p>업무에 맞는 말투로 변환해드립니다.</p>
+    <div id="app" class="p-5 flex justify-center items-start min-h-screen box-border bg-gray-100 text-gray-800">
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-4xl flex flex-col gap-6">
+            <h1 class="text-3xl lg:text-4xl text-gray-800 text-center mb-2">BizTone Converter</h1>
+            <p class="text-base text-center mt-0 mb-6 text-gray-600">업무에 맞는 말투로 변환해드립니다.</p>
 
-        <div class="input-section">
-            <textarea id="original-text" placeholder="여기에 변환할 텍스트를 입력하세요 (최대 500자)" maxlength="500"></textarea>
-            <div class="char-count">0/500</div>
-            <select id="target-audience">
-                <option value="상사">상사</option>
-                <option value="동료">타팀 동료</option>
-                <option value="고객">고객</option>
-            </select>
-            <button id="convert-button">변환하기</button>
-        </div>
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="input-section relative flex flex-col gap-4 p-6 border border-gray-200 rounded-lg bg-white">
+                    <div class="relative">
+                        <textarea id="original-text" placeholder="여기에 변환할 텍스트를 입력하세요 (최대 500자)" maxlength="500" class="w-full min-h-[150px] lg:min-h-[200px] p-3 pr-10 border border-gray-300 rounded-md text-base box-border resize-y transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400"></textarea>
+                        <div class="char-count text-sm text-gray-500 absolute bottom-1 right-2 bg-white px-1">0/500</div>
+                    </div>
+                    <select id="target-audience" class="w-full py-2 px-3 border border-gray-300 rounded-md text-base bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="상사">상사</option>
+                        <option value="동료">타팀 동료</option>
+                        <option value="고객">고객</option>
+                    </select>
+                    <button id="convert-button" class="py-3 px-6 bg-blue-600 text-white border-none rounded-md text-base cursor-pointer transition-colors duration-200 hover:bg-blue-700 active:bg-blue-800 self-end">변환하기</button>
+                </div>
 
-        <div class="output-section">
-            <textarea id="converted-text" readonly placeholder="변환된 결과가 여기에 표시됩니다."></textarea>
-            <button id="copy-button">복사하기</button>
+                <div class="output-section flex flex-col gap-4 p-6 border border-gray-200 rounded-lg bg-white mt-6 lg:mt-0">
+                    <textarea id="converted-text" readonly placeholder="변환된 결과가 여기에 표시됩니다." class="w-full min-h-[150px] lg:min-h-[200px] p-3 border border-gray-300 rounded-md text-base box-border resize-y bg-gray-50 placeholder-gray-400"></textarea>
+                    <button id="copy-button" class="py-3 px-6 bg-blue-600 text-white border-none rounded-md text-base cursor-pointer transition-colors duration-200 hover:bg-blue-700 active:bg-blue-800 self-end">복사하기</button>
+                </div>
+            </div>
         </div>
     </div>
 
